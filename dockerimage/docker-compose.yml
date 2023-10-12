@@ -1,0 +1,30 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: BASICROOTDOLDI@@EE!@#SADSDFVXxcfsafr241x010283018476x6xx6x6x66x6x6x6x6x66x6x6x6x6x6x66xq134hry1hb9x26 x*(@$&(*$^(WQY*(9^$&*!$%$(^8 9( (( ( (*WR&*W R*^RE&W^R*EW&R^%E*W^%R ^&TEGFBNKNFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFj))))))))))
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: BASICROOTDOLDI@@EE!@#SADSDFVXxcfsafr241x010283018476x6xx6x6x66x6x6x6x6x66x6x6x6x6x6x66xq134hry1hb9x26 x*(@$&(*$^(WQY*(9^$&*!$%$(^8 9( (( ( (*WR&*W R*^RE&W^R*EW&R^%E*W^%R ^&TEGFBNKNFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFj))))))))))
+    ports:
+      - 8080:80
+
+  web:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - phpmyadmin
+
+volumes:
+  mysql_data:
